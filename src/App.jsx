@@ -1,25 +1,34 @@
 import invitationImg from './assets/iara.jpg'
 
 function App() {
-  const handleClick = () => {
-    // Adicione aqui a função que desejar (ex: abrir link, mostrar alerta, etc)
-    console.log("Botão invisível clicado!");
-    alert("Convite clicado!");
+  const whatsappLink = "https://wa.me/5594991016930?text=Ol%C3%A1%20noivos%2C%20eu%20estou%20confirmando%20minha%20presen%C3%A7a!!";
+
+  const handleConfirmation = () => {
+    window.location.href = whatsappLink;
   };
 
   return (
     <div className="fixed inset-0 w-full h-full flex items-start justify-center bg-[#f3e9e2] overflow-hidden touch-none">
-      <div className="w-full max-w-md relative h-full">
+      <div className="w-full max-w-md relative">
         <img
           src={invitationImg}
           alt="Convite Ronald & Iara"
-          className="w-full h-auto block shadow-2xl"
+          className="w-full h-auto block select-none pointer-events-none"
           loading="eager"
         />
+
+        {/* Botão Invisível apenas sobre 'Confirmação de Presença' */}
         <button
-          onClick={handleClick}
-          className="absolute inset-0 w-full h-full bg-transparent border-none cursor-pointer outline-none focus:outline-none"
-          aria-label="Ação do Convite"
+          onClick={handleConfirmation}
+          className="absolute bg-transparent border-none cursor-pointer outline-none focus:outline-none"
+          style={{
+            top: '57%',
+            left: '10%',
+            width: '26%',
+            height: '14%',
+            zIndex: 10
+          }}
+          aria-label="Confirmar Presença"
         />
       </div>
     </div>
